@@ -7,12 +7,17 @@ This project demonstrates a complete machine learning pipeline to predict surviv
 1) 📁DATASET
 The dataset used is the classic Titanic dataset from Kaggle. It contains information on the passengers aboard the Titanic, such as age, sex, ticket fare, class, etc., along with their survival outcome.
 
-2) 🧰 TECHNOLOGIES USED
-Python
-NumPy for numerical operations
-Pandas for data handling
-Matplotlib & Seaborn for data visualization
-No external ML libraries like scikit-learn were used for modeling
+### 🧰 TECHNOLOGIES USED
+
+| Tool         | Purpose                              |
+|--------------|---------------------------------------|
+| Python       | Base programming language             |
+| NumPy        | Numerical operations                  |
+| Pandas       | Data handling                         |
+| Matplotlib   | Data visualization                    |
+| Seaborn      | Data visualization                    |
+| *No Sklearn* | No external ML libraries were used    |
+
 
 3)🧪 FEATURES USED
 After data cleaning and feature selection using correlation thresholding, the final features used for model training were:
