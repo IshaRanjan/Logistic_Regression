@@ -1,71 +1,112 @@
-🚢 TITANIC SURVIVAL PREDICTION - Logistic Regression from Scratch
+# 🚢 Titanic Survival Prediction — Logistic Regression from Scratch
 
-This project aims to understand model fundamentals without relying on external ML libraries.
+This project implements **Logistic Regression from scratch using NumPy** to predict passenger survival in the Titanic dataset. It walks through data preprocessing, encoding, visualization, model training, and performance evaluation — all without using external machine learning libraries.
 
-This project demonstrates a complete machine learning pipeline to predict survival on the Titanic dataset using Logistic Regression implemented from scratch in NumPy. The workflow includes data preprocessing, visualization, model training, and evaluation.
+---
 
-1) 📁DATASET
-The dataset used is the classic Titanic dataset from Kaggle. It contains information on the passengers aboard the Titanic, such as age, sex, ticket fare, class, etc., along with their survival outcome.
+## 🧰 **Technologies Used**
 
-### 🧰 TECHNOLOGIES USED
+| **Tool**      | **Purpose**                           |
+|---------------|----------------------------------------|
+| Python        | Core programming language              |
+| NumPy         | Numerical operations                   |
+| Pandas        | Data handling                          |
+| Matplotlib    | Data visualization                     |
+| Seaborn       | Enhanced data visualization            |
+| No sklearn    | Model implemented fully from scratch   |
 
-| Tool         | Purpose                              |
-|--------------|---------------------------------------|
-| Python       | Base programming language             |
-| NumPy        | Numerical operations                  |
-| Pandas       | Data handling                         |
-| Matplotlib   | Data visualization                    |
-| Seaborn      | Data visualization                    |
-| *No Sklearn* | No external ML libraries were used    |
+---
 
+## 🗂️ **Workflow**
 
-3)🧪 FEATURES USED
-After data cleaning and feature selection using correlation thresholding, the final features used for model training were:
-Pclass
-Age
-SibSp
-Fare
-Sex_male (encoded from Sex)
-Embarked_S (encoded from Embarked)
+1. **Data Preprocessing**
+   - Dropped unnecessary columns: `PassengerId`, `Name`, `Ticket`, `Cabin`
+   - Filled missing values:
+     - `Age` → median
+     - `Embarked` → mode
+   - One-hot encoded categorical variables
+   - Standardized features manually
 
-4)⚙️ WORKFLOW
-1. Data Preprocessing
-Dropped unnecessary columns: PassengerId, Name, Ticket, Cabin
-Handled missing values:
-Filled Age with the median
-Filled Embarked with the mode
-One-hot encoded categorical variables
-Normalized features using standardization
+2. **Exploratory Data Analysis**
+   - Boxplots for outliers grouped by `Sex` and `Pclass`
+   - Heatmap of correlation matrix
+   - Feature selection based on correlation with `Survived`
 
-2. Exploratory Data Analysis
-Used boxplots to visualize outliers grouped by Sex and Pclass
-Plotted a heatmap of the correlation matrix
+3. **Model Implementation**
+   - Implemented **Logistic Regression** from scratch with:
+     - Sigmoid activation
+     - Binary cross-entropy loss
+     - Gradient descent optimization
 
-3. Model Implementation
-Logistic Regression implemented manually using NumPy
-Trained using gradient descent
-Tracked loss function over 2000 iterations
+4. **Evaluation**
+   - Tracked loss over iterations
+   - Manually calculated:
+     - Accuracy
+     - Precision
+     - Recall
+     - F1 Score
+     - Confusion Matrix
 
+---
 
-### 📊 MODEL PERFORMANCE
+## 📊 **Model Performance**
 
-| Metric    | Value   |
-|-----------|---------|
-| Accuracy  | 0.8324  |
-| Precision | 0.7742  |
-| Recall    | 0.7500  |
-| F1 Score  | 0.7619  |
+| **Metric**   | **Score** |
+|--------------|-----------|
+| Accuracy     | 0.8324    |
+| Precision    | 0.7742    |
+| Recall       | 0.7500    |
+| F1 Score     | 0.7619    |
 
+---
 
-6)📉 Training Loss
-A plot of the loss over iterations shows smooth convergence, indicating stable training.
+## 📉 **Loss Over Iterations**
 
-7)📦 How to Run
-Download the Titanic dataset CSV from Kaggle and place it in your working directory.
-Update the path in pd.read_csv() accordingly.
+Loss was calculated and plotted at each iteration (2000 in total), showing convergence and model learning over time.
 
-Run the script in a Jupyter Notebook or any Python IDE.
+---
 
+## 🧪 **Final Features Used**
 
-Feature selection was based on a correlation threshold (0.01) relative to the Survived column.
+After encoding and correlation filtering, these features were used in model training:
 
+| **Feature**     | **Description**                          |
+|------------------|------------------------------------------|
+| Pclass           | Passenger class (1st, 2nd, 3rd)          |
+| Age              | Age of passenger                         |
+| SibSp            | Number of siblings/spouses aboard        |
+| Fare             | Ticket fare                              |
+| Sex_male         | Binary encoded gender                    |
+| Embarked_S       | Binary encoded port of embarkation (Southampton) |
+
+---
+
+## 🔍 **Evaluation Metrics (Manual Calculation)**
+
+| **Metric**   | **Definition**                            |
+|--------------|-------------------------------------------|
+| Accuracy     | Correct predictions / Total samples       |
+| Precision    | True Positives / Predicted Positives      |
+| Recall       | True Positives / Actual Positives         |
+| F1 Score     | Harmonic mean of Precision and Recall     |
+
+---
+
+## 🔎 **Confusion Matrix**
+
+A confusion matrix was created manually and visualized using Seaborn's heatmap.
+
+|              | **Predicted 0** | **Predicted 1** |
+|--------------|------------------|------------------|
+| **Actual 0** | True Negative     | False Positive   |
+| **Actual 1** | False Negative    | True Positive    |
+
+---
+
+## 📦 **How to Run**
+
+1. Download the Titanic dataset from [Kaggle](https://www.kaggle.com/c/titanic/data).
+2. Save the CSV to your local directory.
+3. Update the path in the script:
+   ```python
+   pd.read_csv('C:\\Users\\HP\\Downloads\\titanic.csv')
