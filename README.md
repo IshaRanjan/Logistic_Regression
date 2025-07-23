@@ -1,107 +1,66 @@
-TITANIC SURVIVAL PERDICTION USING LOGISTIC REGRESSION
-This repository contains a Python notebook that demonstrates step-by-step application of logistic regression to predict survival on the Titanic dataset. Using pandas, Seaborn, and Matplotlib, this project explores, visualizes, and models the classic Titanic dataset to provide an introduction to machine learning and binary classification.
+🚢 TITANIC SURVIVAL PREDICTION - Logistic Regression from Scratch
 
-Table of Contents
+This project aims to understand model fundamentals without relying on external ML libraries.
 
-Overview
-Dataset
-Libraries Used
-Exploratory Data Analysis
-Data Preprocessing
-Model Training
-How to Run
-Result
-Directory Structure
+This project demonstrates a complete machine learning pipeline to predict survival on the Titanic dataset using Logistic Regression implemented from scratch in NumPy. The workflow includes data preprocessing, visualization, model training, and evaluation.
 
-1)Overview
-    This project aims to predict which passengers survived the Titanic disaster using logistic regression. We:
-    
-    Clean and preprocess the raw data,
-    
-    Explore and visualize feature importance,
-    
-    Fit a logistic regression model,
-    
-    Evaluate model performance.
+1) 📁DATASET
+The dataset used is the classic Titanic dataset from Kaggle. It contains information on the passengers aboard the Titanic, such as age, sex, ticket fare, class, etc., along with their survival outcome.
 
-2)Dataset
-    Source: Titanic dataset from Kaggle
-    
-    Columns included:
-    
-    PassengerId
-    
-    Survived (target variable)
-    
-    Pclass
-    
-    Name
-    
-    Sex
-    
-    Age
-    
-    SibSp
+2) 🧰 TECHNOLOGIES USED
+Python
+NumPy for numerical operations
+Pandas for data handling
+Matplotlib & Seaborn for data visualization
+No external ML libraries like scikit-learn were used for modeling
 
-    Parch
-    
-    Ticket
-    
-    Fare
-    
-    Cabin
-    
-    Embarked
+3)🧪 FEATURES USED
+After data cleaning and feature selection using correlation thresholding, the final features used for model training were:
+Pclass
+Age
+SibSp
+Fare
+Sex_male (encoded from Sex)
+Embarked_S (encoded from Embarked)
 
-3)Libraries Used
-    numpy
-    
-    pandas
-    
-    matplotlib
-    
-    seaborn
-    
-    scikit-learn (for model training)
+4)⚙️ WORKFLOW
+1. Data Preprocessing
+Dropped unnecessary columns: PassengerId, Name, Ticket, Cabin
+Handled missing values:
+Filled Age with the median
+Filled Embarked with the mode
+One-hot encoded categorical variables
+Normalized features using standardization
 
-4)Exploratory Data Analysis
-    Visual distribution of Age, Fare, and Survival rate by class and gender.
-    
-    Assessment of missing values and correlations.
+2. Exploratory Data Analysis
+Used boxplots to visualize outliers grouped by Sex and Pclass
+Plotted a heatmap of the correlation matrix
 
-5)Data Preprocessing
-    Handling missing values (e.g., Age, Cabin).
-    
-    Encoding categorical variables (Sex, Embarked) using one-hot encoding.
-    
-    Selecting features for modeling.
+3. Model Implementation
+Logistic Regression implemented manually using NumPy
+Trained using gradient descent
+Tracked loss function over 2000 iterations
 
-6)Model Training
-    Logistic regression is used as the core model for binary classification (Survived/Not Survived).
-    
-    Model fitting, validation, and prediction steps are shown in the notebook.
 
-7)How to Run
-    Clone this repository.
-    
-    Place the titanic.csv file in the project folder.
-    
-    Run the logistic_regression-checkpoint.ipynb notebook using Jupyter Notebook or JupyterLab.
-    
-    bash
-    pip install numpy pandas matplotlib seaborn scikit-learn
-8)Results
-    Model performance is displayed using accuracy and confusion matrix.
-    
-    Feature impacts are discussed based on model coefficients and exploratory analysis.
+### 📊 MODEL PERFORMANCE
 
-9)Directory Structure
-    text
-    ├── logistic_regression-checkpoint.ipynb
-    ├── titanic.csv
-    ├── README.md
+| Metric    | Value   |
+|-----------|---------|
+| Accuracy  | 0.8324  |
+| Precision | 0.7742  |
+| Recall    | 0.7500  |
+| F1 Score  | 0.7619  |
 
-10)Acknowledgments
-    Kaggle for making the Titanic dataset publicly available.
-    
-    Python open-source community for the libraries and documentation.
+
+6)📉 Training Loss
+A plot of the loss over iterations shows smooth convergence, indicating stable training.
+
+7)📦 How to Run
+Download the Titanic dataset CSV from Kaggle and place it in your working directory.
+Update the path in pd.read_csv() accordingly.
+
+Run the script in a Jupyter Notebook or any Python IDE.
+
+
+Feature selection was based on a correlation threshold (0.01) relative to the Survived column.
+
